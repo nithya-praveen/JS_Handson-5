@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .qst
+        {
+            color: blue;
+        }
+        .ans
+        {
+            color:rgb(149, 4, 4);
+        }
+    </style>
+</head>
+<body>
+    <h1>Strings</h1>
+    <b class="qst">Q1.</b>
+    <b class="ans">Count Characters
+        You are given a string S, and your task is to return an array B (having a size of ), where B[0] contains 
+        the count of character A (uppercase) in string S and B[1] contains the count of character D (uppercase) in 
+        string S.        
+    </b> <br><br>
+    <b class="qst">A1.</b>const countCharacters = (S) => <br>
+    { <br>
+      var B=[]; <br>
+      B[0]=[...S].filter(ch=>ch=="A").length; <br>
+      B[1]=[...S].filter(ch=>ch=="D").length; <br>
+      return B; <br>
+    }; <br><br>
+
+    <b class="qst">Q2.</b>
+    <b class="ans">Count the Heads
+        Tina is given a string  S which contains the first letter of all the student names in her class. She got a 
+        curiosity to check how many people have their names starting from the same alphabet. So given a string  S ,
+         she decided to write a code that finds out the count of characters that occur more than once in the string.</b><br><br>
+    <b class="qst">A2.</b>var Count_Occ = (s) => <br>
+        { <br>
+           var B=[]; <br>
+          [...s].filter(function (ch) <br>
+          { <br>
+            var count=0; <br>
+            count=(s.match(new RegExp(ch,"g"))||[]).length; <br>
+            if(count>1) <br>
+            B[ch]=count; <br>
+          }); <br>
+          let newObj=[]; <br>
+          Object.keys(B).sort() <br>
+          .forEach((key)=>  <br>
+          { <br>
+            newObj[key] =B[key];  <br>
+        }); <br>
+        B=newObj; <br>
+          var op =""; <br>
+          for(var k in B) <br>
+          { <br>
+            if(B.hasOwnProperty(k)) <br>
+            { <br>
+              op=op+""+k+""+B[k]; <br>
+          } <br>
+          } <br>
+          B.forEach((item,index)=>  <br>
+          { <br>
+            op=op+item+index; <br>
+          }); <br>        
+          return op; <br>           
+        } <br> <br>
+
+    <b class="qst">Q3.</b>
+    <b class="ans"> Count the Vowels
+        You are given a string S containing both uppercase and lowercase letters. Your
+        need to find out the number of vowels in the given string. 
+    </b> <br><br>    
+    <b class="qst">A3.</b>var Count_Vowels= (S) => <br>
+    { <br>
+       const count = S.match(/[aeiou]/gi).length; <br>
+                  return count;   <br>
+    }; <br><br>
+
+    <b class="qst">Q4.</b>
+    <b class="ans">Concatenate the Strings
+        You are given two strings S1 and S2(containing both uppercase and lowercase 
+        letters), You need to retrun a string which is the concatenation of both the
+        given strings.
+    </b> <br><br>
+    <b class="qst">A4.</b>var Concatenate_Strings = (S1, S2) => <br>
+    { <br>
+       var result = S1.concat(S2); <br>
+              return result;    <br>
+    };  <br><br>
+
+    <b class="qst">Q5.</b>
+    <b class="ans">Find Length
+        You are given a string S, and your task is to return the length of the string
+        S.
+    </b><br><br>
+    <b class="qst">A5.</b>const findLength = (S) => 
+    {
+        const result=S.length;
+        return result;
+    }; <br><br>
+
+    <b class="qst">Q6.</b>
+    <b class="ans">Find the Winner
+        You are given a string S consisting of two letters A and D,where each 
+        character represent the winner of N games played between Aditya and Danish, 
+        where letter A represents the win of Aditya and letter D represents the win 
+        of Danish.You need to find out the that which player wins the maximum number
+        of games or there is a draw between them.
+    </b> <br><br>
+    <b class="qst">A6.</b>
+    var Game_Winner = (S) => 
+    {
+        let countA=S.match(/[A]/gmi).length;
+        let countD=S.match(/[D]/gmi).length;
+        if(countA > countD)
+        {
+            return "Aditya";
+        }
+        else if(countA < countD)
+        {
+            return 'Dansish';
+        }   
+        else
+        {
+            return 'Drew';
+        }
+    } <br><br>
+
+    <b class="qst">Q7.</b>
+    <b class="ans">Join Strings
+        You are given two strings S and P, and your task is to concatenate them and
+        return the concatenated string.
+    </b> <br><br>
+    <b class="qst">A7.</b>const joinStrings = (S, P) => <br>
+    { <br>
+        let result=S.concat(P); <br>
+        return result; <br>
+    };     <br><br>
+
+    <b class="qst">Q8.</b>
+    <b class="ans">Plaindrome Check
+        You are given a string S, Your task is to check wether the given string is a Palindrome or not. A palindrome 
+        is a string, which turnout same when read in reverse direction.
+        Example: "naman" is a Palindrome.
+        String can contain both upppercase lowercase letters.
+    </b> <br> <br>
+    <b class="qst">A8.</b>var Palin_Check = (str) => <br>
+    { <br>
+         let i=0; <br>
+         let j=str.length -1; <br>
+         while(i<j) <br>
+         { <br>
+           if(str[i]===str[j]) <br>
+           { <br>
+             i++; <br>
+             j--; <br>
+           } <br>
+           else <br>
+           { <br>
+           return "False"; <br>
+           } <br>
+         } <br>
+         return "True"; <br>
+    } <br><br>
+
+    <b class="qst">Q9.</b>
+    <b class="ans">Reverse the String
+        You are given a string S, Your task is to Reverse the string.String can 
+        contain both upppercase lowercase letters. 
+    </b> <br><br>
+    <b class="qst">A9.</b>var Reverse_String = (str) => <br>
+    { <br>
+         const r=str.split(""); <br>
+         const arr=r.reverse(); <br>
+         const result=arr.join(""); <br>
+         return result; <br>
+    }; <br><br>
+
+    <b class="qst">Q10.</b>
+    <b class="ans">Match the Strings
+        You are given two strings S1 and S2, Your task is to print YES if both 
+        strings are same else print NO.
+    </b> <br><br>
+     
+    <b class="qst">A10.</b>var String_Match = (S1,S2) => <br>
+    { <br>
+     if(S1 === S2) <br>
+     { <br>
+       return "YES"; <br>
+     } <br>
+     else <br>
+     { <br>
+       return "NO"; <br>
+     } <br>
+     }; <br><br>
+
+    <b class="qst">Q11.</b>
+    <b class="ans">String Replace
+        You are given a string S, along with a pattern string and a text string. 
+        You need to repalce the pattern string in S to the text string.
+    </b> <br><br>
+    <b class="qst">A11.</b>var Replace = (S, pattern , text) => <br>
+    { <br>
+      const result=S.replace(pattern,text); <br>
+      return result; <br>          
+    }; <br><br>
+
+    <b class="qst">Q12.</b>
+    <b class="ans">Split the String
+        You are given a string S, Your task is to split the string with respect to 
+        spaces.
+    </b> <br><br>
+    <b class="qst">A12.</b>var Split_the_string = (S) => <br>
+    { <br>
+      
+        const s= S.split(); <br>
+                return s;     <br>
+    }; <br><br>
+
+    <b class="qst">Q13.</b>
+    <b class="ans">Count the Vowels and Consonants
+        You are given a string S containing both uppercase and lowercase letters.You need 
+        to find out the number of vowels and the number of consonants in the given string.
+    </b> <br><br>
+    <b class="qst">A13.</b>var Count_Vowels= (S) => <br>
+    { <br>
+        const count = S.match(/[aeiou]/gi).length; <br>        
+        return count;   <br> 
+    }; <br>
+    var Count_Consonants= (S) => <br>
+    { <br>
+        let result = S.split('').filter(e => e.match(/[^aeiou]/) !== null).length; <br>
+        return result;   <br>
+    };
+       
+</body>
+</html>
